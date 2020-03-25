@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Guid>e4ef0ddc-065f-481c-8564-7e2304d2d322</Guid>
+    <Name>Controller Cheats</Name>
+    <Description>[H1]Controller Cheats[/h1]
+
+Did your grenadier miss a point blank 99% shot? Did your ranger just get shot through high cover from halfway across the map?
+Don't get mad! Cheat! But wait, WelfareRecipient, I'm a filthy casual controller player and I just want to sit on my couch without a keyboard. 
+Fear not, this mod brings you back to days of old where games had cheat codes.
+
+[b]This mod requires the highlander to work.[/b]
+
+By default this mod adds the following cheats to the game:
+[code]
+UUDDLRLRA - RestartLevel
+UDLRX - PowerUp
+[/code]
+
+[h1] How To Cheat [/h1]
+
+During the tactical phase, hold down LT + RT to activate cheat mode. You'll know you're in cheat mode because no other input will work. 
+Once in cheat mode, you can cancel out of it by pressing in the right stick. 
+Or you can enter a cheat sequence. Once a cheat sequence is complete, the cheat will be activated and cheat mode will end. 
+
+[H1] Adding Your Own Cheat Codes [/h1]
+
+Additional codes can be added by modifying this config file:
+[code]
+%steamdir%\steamapps\workshop\content\268500\2035316137\Config\XComControllerCheats.ini
+[/code]
+
+Once in this file, enter the sequence of buttons you'd like and the [url=https://docs.google.com/document/d/1ENKGPkqFztt83iNmKQNmPNyMyjcd3aXjF6xnFQD2BKA/edit]xcom2 console command [/url] to execute. Note that some cheats do not work in the tactical phase.
+
+The command string can comprise of the following values::
+[Table]
+[tr][Th]Letter[/Th][Th]Input[/Th][/tr]
+[Tr][td]U[/td][td]D-Pad Up[/td][/tr]
+[Tr][td]D[/td][td]D-Pad Down[/td][/tr]
+[Tr][td]L[/td][td]D-Pad Left[/td][/tr]
+[Tr][td]R[/td][td]D-Pad Right[/td][/tr]
+[Tr][td]A[/td][td]A[/td][/tr]
+[Tr][td]B[/td][td]B[/td][/tr]
+[Tr][td]X[/td][td]X[/td][/tr]
+[Tr][td]Y[/td][td]Y[/td][/tr]
+[Tr][td]S[/td][td]Start[/td][/tr]
+[/table]
+Bumpers, triggers and the select key are not supported.
+
+For example:
+[code]
++CheatCodes=(Command="ABXY",Cheat="killAI")
+[/code]
+Will add a code to execute `KillAi`, when you enter the sequence A,B,X,Y
+Also realize that cheat codes themselves cannot have substrings of other cheats or else they won't execute. E.g.
+If you have a code ABXY, and you try to add another one with sequence ABXYS, then you can never enter the second one, as the first code will terminate cheat mode.
+
+[h1]Thanks[/h1]
+Xcom2 modding discord for helping me out with this project.
+
+If you use this project please like and favorite, as it raises awareness.
+
+tags=wotc, highlander, controller, cheats, konami code</Description>
+    <SteamPublishID>0</SteamPublishID>
+    <AssemblyName>ControllerCheats</AssemblyName>
+    <RootNamespace>ControllerCheats</RootNamespace>
+    <ProjectGuid>{b7990b05-dca4-48ef-aecb-9222d21b6951}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Src\" />
+    <Folder Include="Src\ControllerCheats\" />
+    <Folder Include="Src\ControllerCheats\Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\XComControllerCheats.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ReadMe.txt" />
+    <Content Include="ModPreview.jpg" />
+    <Content Include="Config\XComEditor.ini" />
+    <Content Include="Config\XComEngine.ini" />
+    <Content Include="Config\XComGame.ini" />
+    <Content Include="Localization\XComGame.int" />
+    <Content Include="Src\ControllerCheats\Classes\UIScreenListener_CC.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\ControllerCheats\Classes\X2DownloadableContentInfo_ControllerCheats.uc" />
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
+</Project>

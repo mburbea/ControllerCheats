@@ -145,13 +145,6 @@ function bool OnUnrealCommand(int cmd, int arg)
 	return true;
 }
 
-exec function RestartLevel()
-{
-	local UIScreen screen;
-	screen = `SCREENSTACK.GetCurrentScreen();
-	screen.PC.RestartLevel();
-}
-
 defaultproperties
 {
 	ScreenClass = none;
